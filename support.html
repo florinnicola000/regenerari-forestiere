@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suport – Control Anual Regenerări</title>
+  <style>
+    :root {
+      --green-dark:  #1b5e20;
+      --green-mid:   #2e7d32;
+      --green-light: #4caf50;
+      --green-pale:  #e8f5e9;
+      --text:        #212121;
+      --text-sec:    #555;
+      --radius:      12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+      color: #fff;
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    header h1 { font-size: 1.8rem; margin-bottom: 8px; }
+    header p  { opacity: 0.85; font-size: 0.95rem; }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+    }
+    .back-link:hover { color: #fff; border-bottom-color: #fff; }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+    }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: var(--green-pale);
+      border-radius: var(--radius);
+      padding: 32px;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .contact-card .icon { font-size: 2.5rem; margin-bottom: 12px; }
+
+    .contact-card h2 {
+      font-size: 1.3rem;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      color: var(--text-sec);
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .btn-email {
+      display: inline-block;
+      background: var(--green-mid);
+      color: #fff;
+      font-weight: 700;
+      padding: 13px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .btn-email:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+    }
+
+    /* ── FAQ ── */
+    h2.section-title {
+      font-size: 1.4rem;
+      color: var(--green-dark);
+      margin-bottom: 24px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e0e0e0;
+      padding: 20px 0;
+    }
+
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-item h3 {
+      font-size: 1rem;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+
+    .faq-item p {
+      font-size: 0.92rem;
+      color: var(--text-sec);
+    }
+
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 24px;
+      font-size: 0.85rem;
+    }
+
+    footer a { color: rgba(255,255,255,0.9); text-decoration: none; }
+    footer a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="back-link">← Înapoi la pagina aplicației</a>
+  <h1>Suport</h1>
+  <p>Control Anual Regenerări – suntem aici să te ajutăm</p>
+</header>
+
+<main>
+
+  <!-- Contact -->
+  <div class="contact-card">
+    <div class="icon">✉️</div>
+    <h2>Contactează-ne</h2>
+    <p>Pentru întrebări, probleme tehnice sau sugestii, trimite-ne un email și îți răspundem în cel mai scurt timp.</p>
+    <a href="mailto:nicolaflorin00@icloud.com" class="btn-email">nicolaflorin00@icloud.com</a>
+  </div>
+
+  <!-- FAQ -->
+  <h2 class="section-title">Întrebări frecvente</h2>
+
+  <div class="faq-item">
+    <h3>Aplicația funcționează fără internet?</h3>
+    <p>Da. Aplicația funcționează complet offline. Nu este necesară nicio conexiune la internet pentru introducerea datelor, calculul reușitei sau exportul PDF.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Unde sunt stocate datele introduse?</h3>
+    <p>Toate datele sunt stocate local pe dispozitivul tău. Nu sunt trimise pe niciun server extern. Dezinstalarea aplicației șterge definitiv toate datele.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Ce norme tehnice implementează aplicația?</h3>
+    <p>Aplicația implementează Ordinul ministrului mediului, apelor și pădurilor nr. 2537/2022, inclusiv criteriile din Anexa 3A (regenerare naturală), Anexa 3B (regenerare artificială) și Anexa 1 (număr suprafețe de control).</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Cum export fișa Model 1 sau Model 2?</h3>
+    <p>După completarea datelor și calculul reușitei, apasă butonul „Export PDF" din ecranul controlului. Fișierul PDF se salvează pe dispozitiv și poate fi deschis, trimis sau tipărit.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Cum se calculează completările necesare?</h3>
+    <p>Completările sunt calculate automat pe baza deficitului de puieți față de norma de plantare (buc/ha), defalcat pe specii principale și alte specii. Dacă ai definit norma de plantare în fișa parcelei, calculul este precis; altfel, se estimează din suprafețele de control.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Pot gestiona mai multe parcele și mai mulți ani de control?</h3>
+    <p>Da. Aplicația permite gestionarea unui număr nelimitat de parcele, fiecare cu controale anuale distincte pentru Etapa I și Etapa II.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Am găsit o eroare sau am o sugestie. Ce fac?</h3>
+    <p>Trimite-ne un email la <a href="mailto:nicolaflorin00@icloud.com" style="color: #2e7d32;">nicolaflorin00@icloud.com</a> cu descrierea problemei sau a sugestiei. Orice feedback este binevenit.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Florin Nicola &nbsp;·&nbsp; <a href="index.html">Control Anual Regenerări</a> &nbsp;·&nbsp; <a href="politica-confidentialitate.html">Politica de confidențialitate</a></p>
+</footer>
+
+</body>
+</html>
