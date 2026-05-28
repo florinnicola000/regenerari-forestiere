@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Control Anual Regenerări – Aplicație pentru silvicultori</title>
+  <style>
+    :root {
+      --green-dark:  #1b5e20;
+      --green-mid:   #2e7d32;
+      --green-light: #4caf50;
+      --green-pale:  #e8f5e9;
+      --text:        #212121;
+      --text-sec:    #555;
+      --radius:      12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+      color: #fff;
+      padding: 64px 24px 48px;
+      text-align: center;
+    }
+
+    header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 4px 16px;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.88;
+      max-width: 560px;
+      margin: 0 auto 32px;
+    }
+
+    .btn-play {
+      display: inline-block;
+      background: #fff;
+      color: var(--green-dark);
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+
+    .btn-play:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 64px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 1.6rem;
+      color: var(--green-dark);
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    /* ── FEATURES ── */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--green-pale);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      border-left: 4px solid var(--green-light);
+    }
+
+    .feature-card .icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .feature-card h3 {
+      font-size: 1rem;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--text-sec);
+    }
+
+    /* ── NORM BANNER ── */
+    .norm-banner {
+      background: var(--green-dark);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 32px;
+      text-align: center;
+      margin: 0 auto;
+      max-width: 900px;
+    }
+
+    .norm-banner h2 {
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .norm-banner p {
+      opacity: 0.88;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+    }
+
+    /* ── SCREENSHOTS placeholder ── */
+    .screens-note {
+      text-align: center;
+      color: var(--text-sec);
+      font-size: 0.9rem;
+      padding: 40px 24px;
+      background: #f5f5f5;
+      border-radius: var(--radius);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+    }
+
+    footer a:hover { border-bottom-color: #fff; color: #fff; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #e0e0e0;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="badge">Android</div>
+  <h1>Control Anual Regenerări</h1>
+  <p>Instrumentul digital pentru controlul anual al regenerărilor forestiere, conform normelor tehnice în vigoare.</p>
+  <a href="https://play.google.com/store/apps/details?id=com.florinnicola.forestcontrol"
+     class="btn-play">
+    Descarcă pe Google Play
+  </a>
+</header>
+
+<!-- ── FEATURES ── -->
+<section>
+  <h2>Ce face aplicația</h2>
+  <div class="features">
+
+    <div class="feature-card">
+      <div class="icon">🌱</div>
+      <h3>Etapa I – Regenerare naturală</h3>
+      <p>Înregistrare suprafețe de control de 5 m², calcul automat al densității puieților și al gradului de regenerare per hectar.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="icon">🌳</div>
+      <h3>Etapa II – Regenerare artificială</h3>
+      <p>Piețe de probă de 100 sau 200 m², calcul reușită pe total și specii principale, calificative BUNĂ / NESATISFĂCĂTOARE / PIERDERE TOTALĂ.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="icon">📊</div>
+      <h3>Calcul automat reușită</h3>
+      <p>Criterii din Anexa 3B aplicate automat în funcție de tipul terenului, regiune și anul de la plantare. Completări calculate și propuse automat.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="icon">📄</div>
+      <h3>Export PDF</h3>
+      <p>Generare Fișa Model 1 și Fișa Model 2 direct din aplicație, gata de semnat și depus.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="icon">📴</div>
+      <h3>Funcționează offline</h3>
+      <p>Nu necesită conexiune la internet. Toate datele sunt stocate local pe dispozitiv.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="icon">🗂️</div>
+      <h3>Gestionare parcele</h3>
+      <p>Evidența completă a parcelelor: suprafață, tip teren, regiune, tip tăiere, ani de la plantare, controale multiple pe ani.</p>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ── NORM BANNER ── -->
+<section style="padding: 48px 24px;">
+  <div class="norm-banner">
+    <h2>Conform Ordinului 2537/2022</h2>
+    <p>Aplicația implementează integral normele tehnice privind controlul anual al regenerărilor din Ordinul ministrului mediului, apelor și pădurilor nr. 2537/2022, inclusiv criteriile din Anexa 3A, Anexa 3B și Anexa 1.</p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>
+    &copy; 2026 Florin Nicola &nbsp;·&nbsp;
+    <a href="politica-confidentialitate.html">Politica de confidențialitate</a> &nbsp;·&nbsp;
+    <a href="mailto:nicolaflorin00@icloud.com">Contact</a>
+  </p>
+</footer>
+
+</body>
+</html>
