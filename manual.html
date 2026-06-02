@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual de utilizare – Control Anual Regenerări</title>
+  <style>
+    :root {
+      --green-dark:  #1b5e20;
+      --green-mid:   #2e7d32;
+      --green-light: #4caf50;
+      --green-pale:  #e8f5e9;
+      --text:        #212121;
+      --text-sec:    #555;
+      --radius:      12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+      color: #fff;
+      padding: 56px 24px 40px;
+      text-align: center;
+    }
+
+    header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 4px 16px;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      font-size: 1.05rem;
+      opacity: 0.88;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    header .home-link {
+      display: inline-block;
+      margin-top: 24px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+      padding-bottom: 2px;
+    }
+    header .home-link:hover { border-bottom-color: #fff; }
+
+    /* ── LAYOUT ── */
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 48px 24px 16px;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--green-pale);
+      border-left: 4px solid var(--green-light);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 40px;
+    }
+    .toc h2 {
+      font-size: 1.1rem;
+      color: var(--green-dark);
+      margin-bottom: 14px;
+    }
+    .toc ol {
+      margin: 0;
+      padding-left: 20px;
+      columns: 2;
+      column-gap: 32px;
+    }
+    .toc li { margin-bottom: 6px; break-inside: avoid; }
+    .toc a {
+      color: var(--green-mid);
+      text-decoration: none;
+      font-size: 0.92rem;
+    }
+    .toc a:hover { text-decoration: underline; }
+    @media (max-width: 600px) { .toc ol { columns: 1; } }
+
+    /* ── SECTIONS (accordion) ── */
+    details {
+      border: 1px solid #e0e0e0;
+      border-radius: var(--radius);
+      margin-bottom: 14px;
+      overflow: hidden;
+      background: #fff;
+    }
+    details[open] { box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 24px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: var(--green-pale);
+      transition: background 0.15s;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary:hover { background: #dcedc8; }
+    summary .num {
+      flex: 0 0 auto;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--green-mid);
+      color: #fff;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    summary .title { flex: 1 1 auto; }
+    summary .chev {
+      flex: 0 0 auto;
+      transition: transform 0.2s;
+      color: var(--green-mid);
+    }
+    details[open] summary .chev { transform: rotate(90deg); }
+
+    .body {
+      padding: 22px 26px 26px;
+      color: var(--text-sec);
+      font-size: 0.97rem;
+    }
+    .body h3 {
+      color: var(--green-dark);
+      font-size: 1rem;
+      margin: 18px 0 6px;
+    }
+    .body h3:first-child { margin-top: 0; }
+    .body p { margin-bottom: 12px; }
+    .body ul, .body ol { margin: 0 0 12px 22px; }
+    .body li { margin-bottom: 5px; }
+    .body strong { color: var(--text); }
+    .body code {
+      background: var(--green-pale);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    .callout {
+      background: #fff8e1;
+      border-left: 4px solid #f9a825;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin: 14px 0;
+      font-size: 0.92rem;
+      color: #5d4037;
+    }
+    .callout strong { color: #5d4037; }
+
+    /* ── CTA ── */
+    .cta {
+      text-align: center;
+      padding: 32px 24px 8px;
+    }
+    .btn-play {
+      display: inline-block;
+      background: var(--green-mid);
+      color: #fff;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1rem;
+      box-shadow: 0 4px 16px rgba(46,125,50,0.25);
+      transition: transform 0.15s;
+    }
+    .btn-play:hover { transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.85rem;
+      margin-top: 48px;
+    }
+    footer a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+    }
+    footer a:hover { border-bottom-color: #fff; color: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="badge">Manual de utilizare</div>
+  <h1>Control Anual Regenerări</h1>
+  <p>Ghid complet: de la adăugarea unei parcele până la generarea documentelor și backup-ul datelor.</p>
+  <a href="index.html" class="home-link">← Înapoi la pagina aplicației</a>
+</header>
+
+<main>
+
+  <!-- ── CUPRINS ── -->
+  <nav class="toc">
+    <h2>Cuprins</h2>
+    <ol>
+      <li><a href="#cum-functioneaza">Cum funcționează aplicația</a></li>
+      <li><a href="#ecran-principal">Ecranul principal</a></li>
+      <li><a href="#adaugare-parcela">Adăugarea unei parcele</a></li>
+      <li><a href="#etapa-1">Etapa I – Regenerare naturală</a></li>
+      <li><a href="#etapa-2">Etapa II – Regenerare artificială</a></li>
+      <li><a href="#necesar-puieti">Necesar puieți (completări/refaceri)</a></li>
+      <li><a href="#masiv">Stare de masiv (Anexa 7) și Anexa 8</a></li>
+      <li><a href="#pierderi">Pierderi totale și PV de prindere</a></li>
+      <li><a href="#editare">Editare și ștergere parcelă</a></li>
+      <li><a href="#export">Export PDF și Excel</a></li>
+      <li><a href="#pachet-anual">Export pachet anual (ZIP)</a></li>
+      <li><a href="#backup">Backup și restaurare date</a></li>
+      <li><a href="#notificari">Memento-uri și notificări</a></li>
+      <li><a href="#faq">Întrebări frecvente</a></li>
+      <li><a href="#despre">Despre și contact</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1 -->
+  <details id="cum-functioneaza" open>
+    <summary><span class="num">1</span><span class="title">Cum funcționează aplicația</span><span class="chev">▸</span></summary>
+    <div class="body">
+      <p>Aplicația te ajută să faci <strong>controlul anual al regenerărilor forestiere</strong> conform
+        Ordinului 2537/2022 și să generezi fișele de teren și documentele aferente.</p>
+      <h3>Fluxul general</h3>
+      <ol>
+        <li>Adaugi o <strong>parcelă</strong> (suprafața de regenerat) cu datele ei: u.p., u.a., suprafață, compoziție, tip de teren, regiune etc.</li>
+        <li>Pe acea parcelă faci un <strong>control</strong> — Etapa I (regenerare naturală) sau Etapa II (regenerare artificială/mixtă) — în care introduci ce ai măsurat pe teren.</li>
+        <li>Aplicația <strong>calculează automat</strong> densitățile, procentele de reușită, calificativul și, dacă e cazul, necesarul de completări.</li>
+        <li><strong>Generezi documentele</strong> (PDF / Excel) și le poți trimite sau salva.</li>
+      </ol>
+      <div class="callout">Totul funcționează <strong>offline</strong>, iar datele sunt salvate <strong>local</strong> pe telefon. Fă periodic un <strong>backup</strong> (vezi secțiunea dedicată).</div>
+    </div>
+  </details>
+
+  <!-- 2 -->
+  <details id="ecran-principal">
+    <summary><span class="num">2</span><span class="title">Ecranul principal</span><span class="chev">▸</span></summary>
+    <div class="body">
+      <p>Pe ecranul de start ai:</p>
+      <ul>
+        <li>Sus, un <strong>banner cu statistici</strong> — câte parcele ai în total și câte sunt în control activ.</li>
+        <li>Patru <strong>carduri</strong> care deschid cele patru module:
+          <ul>
+            <li><strong>Etapa I</strong> — regenerare naturală (Model 1, Anexa 3A)</li>
+            <li><strong>Etapa II</strong> — regenerare artificială (Model 2, Anexa 3B)</li>
+            <li><strong>Stare de masiv</strong> — parcelele care au realizat starea de masiv</li>
+            <li><strong>Pierderi totale</strong> — declarații de pierdere totală și PV de prindere</li>
+          </ul>
+        </li>
+        <li>În colțul din dreapta sus: iconița <strong>?</strong> (acest ghid) și meniul cu <strong>trei puncte</strong> (⋮) — export pachet anual, backup, restaurare și ștergere totală.</li>
+      </ul>
+    </div>
+  </details>
+
+  <!-- 3 -->
+  <details id="adaugare-parcela">
+    <summary><span class="num">3</span><span class="title">Adăugarea unei parcele</span><span class="chev">▸</span></summary>
+    <div class="body">
+      <p>Intri în <strong>Etapa I</strong> sau <strong>Etapa II</strong> și apeși butonul rotund <strong>+</strong> (jos-dreapta) pentru a adăuga o parcelă nouă.</p>
+      <h3>Ce introduci</h3>
+      <ul>
+        <li><strong>Identificare</strong>: ocol, u.p. (unitate de producție), u.a. (unitate amenajistică), partida.</li>
+        <li><strong>Suprafața</strong> de regenerat (ha) — stă la baza tuturor extrapolărilor.</li>
+        <li><strong>Compoziția</strong> de regenerare (ex: <code>8GO 2CA</code> sau <code>5ST 2,5FR</code>) — codurile de specii și proporțiile lor.</li>
+        <li><strong>Tipul de teren</strong> și <strong>regiunea</strong> — determină pragurile de reușită din Anexa 3B.</li>
+        <li><strong>Tipul de tăiere</strong> / modul de regenerare și <strong>anul plantării</strong> (pentru Etapa II).</li>
+      </ul>
+      <div class="callout">Aceeași parcelă poate avea <strong>mai multe controale, pe ani diferiți</strong>. O introduci o singură dată și revii la ea în fiecare an.</div>
+    </div>
+  </details>
+
+  <!-- 4 -->
+  <details id="etapa-1">
+    <summary><span class="num">4</span><span class="title">Etapa I – Regenerare naturală</span><span class="chev">▸</span></summary>
+    <div class="body">
+      <p>Pentru o parcelă, deschizi lista de controale și apeși <strong>+</strong> pentru un control nou.</p>
+      <h3>Ce introduci</h3>
+      <p>Pentru fiecare <strong>suprafață de control de 5 m²</strong> instalată în teren, numărul de puieți pe specii. Aplicația îți spune <strong>câte suprafețe</strong> sunt necesare în funcție de mărimea parcelei (10/5/2 suprafețe la hectar, pe plaje de suprafață).</p>
+      <h3>Ce calculează automat</h3>
+      <ul>
+        <li>numărul total de puieți și <strong>densitatea la hectar</strong>;</li>
+        <li>procentele pe specii și <strong>gradul de regenerare</strong>;</li>
+        <li>suprafețele <strong>extrapolate</strong> de la cele de 5 m² la întreaga parcelă.</li>
+      </ul>
+      <h3>Ce generează</h3>
+      <p><strong>Fișa Model 1</strong> în PDF și Excel, gata de semnat.</p>
+    </div>
+  </details>
+
+  <!-- 5 -->
+  <details id="etapa-2">
+    <summary><span class="num">5</span><span class="title">Etapa II – Regenerare artificială</span><span class="chev">▸</span></summary>
+    <div class="body">
+      <p>La fel ca la Etapa I: deschizi parcela și adaugi un control. Aici lucrezi cu <strong>piețe de probă</strong> (suprafețe de control mai mari). Pentru parcelele <strong>sub 0,25 ha</strong> se face <strong>control integral</strong> (toată suprafața), nu prin piețe.</p>
+      <h3>Ce introduci</h3>
+      <p>Per suprafață: puieții găsiți pe <strong>specii plantate</strong> și, separat, regenerarea <strong>naturală</strong> instalată; ariile lucrărilor (la compoziții MIXT). Aplicația validează datele (ex: principalul nu poate depăși totalul).</p>
+      <h3>Ce calculează automat</h3>
+      <ul>
+        <li><strong>% reușită</strong> total și pe <strong>speciile principale</strong>;</li>
+        <li><strong>calificativul</strong>: <strong>BUNĂ</strong>, <strong>NESATISFĂCĂTOARE</strong> sau <strong>PIERDERE TOTALĂ</strong>, comparând cu pragurile din <strong>Anexa 3B</strong> (în funcție de teren, regiune și anul de la plantare);</li>
+        <li><strong>majorarea anuală a pierderilor</strong> (+2%/an din anul III, +IV la terenuri degradate, maxim +10%) — coboară pragul minim de reușită cu aceeași valoare cu care urcă pierderea tehnologică;</li>
+        <li><strong>sugestia de completări</strong>: suprafața și numărul de puieți necesari.</li>
+      </ul>
+      <p>Dacă suprafața de control are <strong>pantă</strong>, o introduci și aplicația o reduce la proiecția orizontală.</p>
+      <h3>Ce generează</h3>
+      <p><strong>Fișa Model 2</strong> (multi-an) în PDF și Excel.</p>
+    </div>
+  </details>
+
+  <!-- 6 -->
+  <details id="necesar-puieti">
+    <summary><span class="num">6</span><span class="title">Necesar puieți (completări / refaceri)</span><span class="chev">▸</span></summary>
+    <div class="body">
+      <p>Din ecranul <strong>Etapa II</strong>, butonul <strong>„Necesar puieți"</strong> generează un <strong>Excel centralizator pe specii</strong> cu puieții necesari pentru <strong>completări și refaceri</strong>, pe toate parcelele care au nevoie.</p>
+      <p>Este util pentru a comanda materialul de împădurire: aduni într-un singur tabel, pe fiecare specie, câți puieți îți trebuie în campania următoare.</p>
+    </div>
+  </details>
+
+  <!-- 7 -->
+  <details id="masiv">
+    <summary><span class="num">7</span><span class="title">Stare de masiv (Anexa 7) și Anexa 8</span><span class="chev">▸</span></summary>
+    <div class="body">
+      <p>Modulul <strong>Stare de masiv</strong> ține evidența parcelelor care au <strong>realizat starea de masiv</strong>.</p>
+      <ul>
+        <li><strong>Constatarea (Anexa 7)</strong>: deschizi o parcelă și completezi formularul de constatare a stării de masiv; rezultă declarația PDF.</li>
+        <li><strong>Anexa 8</strong>: din acest ecran (butonul <strong>+</strong> → „Anexa 8") generezi PV-ul + centralizatorul pentru regenerările care <strong>NU</strong> au realizat starea de masiv <strong>la termenul planificat</strong>. Aplicația selectează automat parcelele cu termen atins/depășit și încă în control, folosind datele din ultimul control Etapa II (puieți/ha, reușită, cauze, măsuri).</li>
+      </ul>
+      <div class="callout">Anexa 8 se generează și automat în <strong>pachetul anual</strong> (vezi secțiunea respectivă).</div>
+    </div>
+  </details>
+
+  <!-- 8 -->
+  <details id="pierderi">
+    <summary><span class="num">8</span><span class="title">Pierderi totale și PV de prindere</span><span class="chev">▸</span></summary>
+    <div class="body">
+      <p>Când o regenerare se compromite integral, în modulul <strong>Pierderi totale</strong> (sau direct din controlul Etapa II) completezi <strong>declarația de pierdere totală</strong> și, după caz, <strong>PV-ul de prindere</strong>.</p>
+      <p>Rezultă documentele PDF corespunzătoare. Parcela apare în statistica de pierderi de pe ecranul principal.</p>
+    </div>
+  </details>
+
+  <!-- 9 -->
+  <details id="editare">
+    <summary><span class="num">9</span><span class="title">Editare și ștergere parcelă</span><span class="chev">▸</span></summary>
+    <div class="body">
+      <p><strong>Apasă lung (long-press)</strong> pe o parcelă din listă pentru a deschide meniul de <strong>editare</strong> și <strong>ștergere</strong>.</p>
+      <ul>
+        <li><strong>Editare</strong> — corectezi datele parcelei (suprafață, compoziție, teren etc.).</li>
+        <li><strong>Ștergere</strong> — elimină parcela <strong>împreună cu toate controalele și suprafețele ei</strong>.</li>
+      </ul>
+      <div class="callout"><strong>Atenție:</strong> ștergerea <strong>nu se poate anula</strong>. Dacă vrei doar să scoți parcela din evidența activă, schimbă-i mai degrabă starea decât să o ștergi. Un <strong>tap scurt</strong> deschide lista de controale (utilizarea normală).</div>
+    </div>
+  </details>
+
+  <!-- 10 -->
+  <details id="export">
+    <summary><span class="num">10</span><span class="title">Export PDF și Excel</span><span class="chev">▸</span></summary>
+    <div class="body">
+      <p>Din ecranul fiecărui control ai opțiunea de a <strong>genera documentul</strong>:</p>
+      <ul>
+        <li><strong>PDF</strong> — fișa gata de printat și semnat (Model 1 / Model 2, Anexa 7, Anexa 8, declarații, PV-uri).</li>
+        <li><strong>Excel (.xls)</strong> — aceleași fișe în format tabelar, editabil.</li>
+      </ul>
+      <p>După generare poți <strong>partaja</strong> fișierul (email, WhatsApp, Drive etc.) sau îl găsești în <strong>Descărcări</strong>. Generarea se face în fundal, fără să blocheze aplicația.</p>
+    </div>
+  </details>
+
+  <!-- 11 -->
+  <details id="pachet-anual">
+    <summary><span class="num">11</span><span class="title">Export pachet anual (ZIP)</span><span class="chev">▸</span></summary>
+    <div class="body">
+      <p>Din meniul <strong>⋮</strong> (trei puncte) de pe ecranul principal → <strong>„Export pachet anual (ZIP)"</strong>.</p>
+      <p>Alegi <strong>anul</strong>, iar aplicația adună <strong>toate documentele</strong> generabile pentru acel an (fișe Etapa I/II, centralizatoare, Anexa 8 etc.) într-o singură <strong>arhivă ZIP</strong>, pe care o poți partaja sau salva.</p>
+      <div class="callout">Este modul cel mai rapid de a preda întreaga documentație a anului dintr-o singură acțiune. Dacă nu există date pentru anul ales, aplicația te anunță.</div>
+    </div>
+  </details>
+
+  <!-- 12 -->
+  <details id="backup">
+    <summary><span class="num">12</span><span class="title">Backup și restaurare date</span><span class="chev">▸</span></summary>
+    <div class="body">
+      <p>Datele stau <strong>doar pe telefon</strong>, deci backup-ul regulat e important (mai ales înainte de a schimba telefonul sau a reinstala aplicația). Din meniul <strong>⋮</strong>:</p>
+      <ul>
+        <li><strong>Export backup</strong> — salvezi un fișier <code>.db</code> cu toate datele, unde alegi tu (Drive, card, etc.). Fă asta periodic.</li>
+        <li><strong>Import / Restaurare</strong> — încarci un fișier de backup. Datele curente sunt <strong>înlocuite complet</strong> și aplicația <strong>repornește</strong> automat.</li>
+      </ul>
+      <div class="callout"><strong>Atenție:</strong> restaurarea nu poate fi anulată. Păstrează backup-urile într-un loc sigur (cloud), nu doar pe telefon.</div>
+    </div>
+  </details>
+
+  <!-- 13 -->
+  <details id="notificari">
+    <summary><span class="num">13</span><span class="title">Memento-uri și notificări</span><span class="chev">▸</span></summary>
+    <div class="body">
+      <p>Aplicația poate trimite <strong>memento-uri anuale</strong> pentru perioada de control. La prima pornire îți va cere permisiunea de <strong>notificări</strong> (Android 13+).</p>
+      <p>Dacă refuzi, aplicația funcționează normal, dar nu vei primi reamintirile. Le poți reactiva din setările de notificări ale telefonului.</p>
+    </div>
+  </details>
+
+  <!-- 14 -->
+  <details id="faq">
+    <summary><span class="num">14</span><span class="title">Întrebări frecvente</span><span class="chev">▸</span></summary>
+    <div class="body">
+      <h3>De ce mi-a ieșit „NESATISFĂCĂTOARE"?</h3>
+      <p>Procentul de reușită (total sau pe specii principale) este sub pragul din Anexa 3B pentru tipul de teren, regiunea și anul de la plantare ale parcelei. Verifică aceste date pe parcelă.</p>
+      <h3>De ce se schimbă pragul de la an la an?</h3>
+      <p>Din anul III (IV la terenuri degradate) pierderile admise cresc cu +2%/an (maxim +10%), deci pragul minim de reușită coboară corespunzător.</p>
+      <h3>Trebuie internet?</h3>
+      <p>Nu. Tot ce ține de calcule, fișe și backup funcționează offline.</p>
+      <h3>Unde ajung fișierele generate?</h3>
+      <p>Le partajezi direct după generare sau le găsești în folderul <strong>Descărcări</strong>.</p>
+      <h3>Pot lucra mai mulți ani pe aceeași parcelă?</h3>
+      <p>Da — adaugi câte un control nou pe an, iar fișa Model 2 le cumulează.</p>
+    </div>
+  </details>
+
+  <!-- 15 -->
+  <details id="despre">
+    <summary><span class="num">15</span><span class="title">Despre și contact</span><span class="chev">▸</span></summary>
+    <div class="body">
+      <p><strong>Control Anual Regenerări</strong> implementează normele tehnice din <strong>Ordinul 2537/2022</strong> (Anexele 1, 3A, 3B). Este o aplicație <strong>neoficială</strong>, nu este afiliată niciunei instituții de stat; răspunderea pentru datele introduse și pentru documentele predate îți revine.</p>
+      <p>Pentru întrebări, probleme sau sugestii: <a href="mailto:nicolaflorin00@icloud.com" style="color:var(--green-mid);">nicolaflorin00@icloud.com</a>.
+        Sursă oficială a ordinului: <a href="https://legislatie.just.ro/Public/DetaliiDocument/260373" style="color:var(--green-mid);">legislatie.just.ro</a>.</p>
+    </div>
+  </details>
+
+  <!-- CTA -->
+  <div class="cta">
+    <a href="https://play.google.com/store/apps/details?id=com.florinnicola.forestcontrol" class="btn-play">Descarcă pe Google Play</a>
+  </div>
+
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>
+    &copy; 2026 Florin Nicola &nbsp;·&nbsp;
+    <a href="index.html">Acasă</a> &nbsp;·&nbsp;
+    <a href="support.html">Suport</a> &nbsp;·&nbsp;
+    <a href="politica-confidentialitate.html">Politica de confidențialitate</a> &nbsp;·&nbsp;
+    <a href="mailto:nicolaflorin00@icloud.com">Contact</a>
+  </p>
+</footer>
+
+</body>
+</html>
