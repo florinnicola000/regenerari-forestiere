@@ -34,7 +34,6 @@
       text-align: center;
     }
 
-    /* lumină difuză animată în fundalul header-ului */
     header::before {
       content: "";
       position: absolute;
@@ -53,6 +52,14 @@
 
     header > * { position: relative; z-index: 1; }
 
+    .badges {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      animation: fadeUp 0.6s ease both;
+    }
+
     header .badge {
       display: inline-block;
       background: rgba(255,255,255,0.15);
@@ -62,8 +69,6 @@
       font-size: 0.8rem;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      margin-bottom: 20px;
-      animation: fadeUp 0.6s ease both;
     }
 
     header h1 {
@@ -81,6 +86,14 @@
       animation: fadeUp 0.6s ease 0.2s both;
     }
 
+    .store-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s ease 0.3s both;
+    }
+
     .btn-play {
       display: inline-block;
       background: #fff;
@@ -92,12 +105,21 @@
       font-size: 1rem;
       transition: transform 0.15s, box-shadow 0.15s;
       box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-      animation: fadeUp 0.6s ease 0.3s both;
     }
 
     .btn-play:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+
+    .btn-play.outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.8);
+    }
+
+    .btn-play.outline:hover {
+      background: rgba(255,255,255,0.1);
     }
 
     @keyframes fadeUp {
@@ -184,16 +206,6 @@
       font-size: 0.95rem;
     }
 
-    /* ── SCREENSHOTS placeholder ── */
-    .screens-note {
-      text-align: center;
-      color: var(--text-sec);
-      font-size: 0.9rem;
-      padding: 40px 24px;
-      background: #f5f5f5;
-      border-radius: var(--radius);
-    }
-
     /* ── FOOTER ── */
     footer {
       background: var(--green-dark);
@@ -228,7 +240,6 @@
       transform: none;
     }
 
-    /* cascadă pentru cardurile dintr-un grid */
     .features.stagger.visible .feature-card {
       animation: fadeUp 0.5s ease both;
     }
@@ -242,7 +253,6 @@
     .features.stagger.visible .feature-card:nth-child(8) { animation-delay: 0.42s; }
     .features.stagger.visible .feature-card:nth-child(9) { animation-delay: 0.48s; }
 
-    /* respectă preferința de mișcare redusă */
     @media (prefers-reduced-motion: reduce) {
       *, *::before { animation: none !important; transition: none !important; }
       .reveal { opacity: 1; transform: none; }
@@ -253,13 +263,22 @@
 
 <!-- ── HEADER ── -->
 <header>
-  <div class="badge">Android</div>
+  <div class="badges">
+    <span class="badge">Android</span>
+    <span class="badge">iOS</span>
+  </div>
   <h1>Control Anual Regenerări</h1>
   <p>Instrumentul digital pentru controlul anual al regenerărilor forestiere, conform normelor tehnice în vigoare.</p>
-  <a href="https://play.google.com/store/apps/details?id=com.florinnicola.forestcontrol"
-     class="btn-play">
-    Descarcă pe Google Play
-  </a>
+  <div class="store-buttons">
+    <a href="https://play.google.com/store/apps/details?id=com.florinnicola.forestcontrol"
+       class="btn-play">
+      Descarcă pe Google Play
+    </a>
+    <a href="https://apps.apple.com/app/id6746892709"
+       class="btn-play outline">
+      Descarcă pe App Store
+    </a>
+  </div>
 </header>
 
 <!-- ── FEATURES ── -->
