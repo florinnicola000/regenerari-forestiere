@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Control Anual Regenerări – Aplicație pentru silvicultori</title>
+  <meta name="description" content="Aplicație Android și iOS pentru controlul anual al regenerărilor forestiere conform Ord. 2537/2022: fișe Model 1 și Model 2, calcul automat al reușitei, export PDF și Excel, funcționează offline." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ro_RO" />
+  <meta property="og:title" content="Control Anual Regenerări – Aplicație pentru silvicultori" />
+  <meta property="og:description" content="Fișe Model 1 și Model 2, calcul automat al reușitei conform Ord. 2537/2022, export PDF și Excel, memento-uri pe termenele legale. Funcționează complet offline." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌲</text></svg>" />
   <style>
     :root {
       --green-dark:  #1b5e20;
@@ -125,6 +131,13 @@
       background: rgba(255,255,255,0.18);
     }
 
+    /* Stare „în curând" — buton vizibil dar inactiv (până la lansarea pe Google Play) */
+    .btn-store.soon {
+      opacity: 0.65;
+      cursor: default;
+      pointer-events: none;
+    }
+
     .store-icon {
       width: 28px;
       height: 28px;
@@ -236,6 +249,19 @@
       font-size: 0.95rem;
     }
 
+    .norm-banner .disclaimer {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.25);
+      font-size: 0.82rem;
+      opacity: 0.75;
+    }
+
+    .norm-banner .disclaimer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
     /* ── FOOTER ── */
     footer {
       background: var(--green-dark);
@@ -252,6 +278,15 @@
     }
 
     footer a:hover { border-bottom-color: #fff; color: #fff; }
+
+    footer .footer-disclaimer {
+      font-size: 0.78rem;
+      opacity: 0.7;
+      margin-bottom: 12px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     .divider {
       border: none;
@@ -301,9 +336,10 @@
   <p>Instrumentul digital pentru controlul anual al regenerărilor forestiere, conform normelor tehnice în vigoare.</p>
   <div class="store-buttons">
 
-    <!-- Google Play -->
-    <a href="https://play.google.com/store/apps/details?id=com.florinnicola.forestcontrol"
-       class="btn-store">
+    <!-- Google Play — ÎN CURÂND. La lansare: înlocuiește <span> cu <a>, scoate clasa
+         "soon", pune sub-textul "GET IT ON" și folosește linkul:
+         https://play.google.com/store/apps/details?id=com.florinnicola.forestcontrol -->
+    <span class="btn-store soon" aria-disabled="true">
       <svg class="store-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path d="M3.18 23.76c.33.18.7.22 1.06.13L14.84 12 4.24.11C3.88.02 3.51.06 3.18.24 2.5.62 2.1 1.34 2.1 2.13v19.74c0 .79.4 1.51 1.08 1.89z" fill="#EA4335"/>
         <path d="M20.83 10.26l-3.1-1.77-3.89 3.51 3.89 3.51 3.14-1.79c.9-.51.9-1.95-.04-2.46z" fill="#FBBC04"/>
@@ -311,10 +347,10 @@
         <path d="M4.24 23.89c.4.17.86.1 1.26-.13l13.23-8.26-3.89-3.5z" fill="#34A853"/>
       </svg>
       <span class="store-text">
-        <span class="store-sub">GET IT ON</span>
+        <span class="store-sub">În curând pe</span>
         <span class="store-main">Google Play</span>
       </span>
-    </a>
+    </span>
 
     <!-- App Store -->
     <a href="https://apps.apple.com/us/app/control-regener%C4%83ri/id6776585307"
@@ -348,7 +384,7 @@
     <div class="feature-card">
       <div class="icon">🌳</div>
       <h3>Etapa II – Regenerare artificială</h3>
-      <p>Piețe de probă de 100 sau 200 m², calcul reușită pe total și specii principale, calificative BUNĂ / NESATISFĂCĂTOARE / PIERDERE TOTALĂ.</p>
+      <p>Suprafețe de control de 100 sau 200 m², calcul reușită pe total și specii principale, calificative BUNĂ / NESATISFĂCĂTOARE / PIERDERE TOTALĂ.</p>
     </div>
 
     <div class="feature-card">
@@ -360,7 +396,7 @@
     <div class="feature-card">
       <div class="icon">🌲</div>
       <h3>Stare de masiv</h3>
-      <p>Evidența parcelelor care au realizat starea de masiv: constatare (Anexa 7) și Anexa 8 pentru regenerările cu termenul depășit.</p>
+      <p>Evidența parcelelor care au realizat starea de masiv: constatare (Anexa 7), sugestie de termen (Anexa 4) și Anexa 8 pentru regenerările cu termenul depășit.</p>
     </div>
 
     <div class="feature-card">
@@ -371,14 +407,20 @@
 
     <div class="feature-card">
       <div class="icon">📄</div>
-      <h3>Export PDF</h3>
-      <p>Generare Fișa Model 1 și Fișa Model 2 direct din aplicație, gata de semnat și depus.</p>
+      <h3>Export PDF &amp; Excel</h3>
+      <p>Fișa Model 1 (PDF), Fișa Model 2 (Excel), centralizator anual și lista necesarului de puieți — plus pachetul anual ZIP cu toate documentele unui an, dintr-o singură apăsare.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="icon">🔔</div>
+      <h3>Memento-uri termene legale</h3>
+      <p>Notificări automate pentru termenele din ordin: PV de prindere (1 martie), faza de teren (1 septembrie), verificare (15 octombrie), depunerea documentației (15 noiembrie).</p>
     </div>
 
     <div class="feature-card">
       <div class="icon">📴</div>
       <h3>Funcționează offline</h3>
-      <p>Nu necesită conexiune la internet. Toate datele sunt stocate local pe dispozitiv.</p>
+      <p>Nu necesită conexiune la internet. Toate datele sunt stocate local pe dispozitiv, cu backup și restaurare într-un singur fișier.</p>
     </div>
 
     <div class="feature-card">
@@ -386,12 +428,6 @@
       <h3>Gestionare parcele</h3>
       <p>Evidența completă a parcelelor: suprafață, tip teren, regiune, tip tăiere, ani de la plantare, controale multiple pe ani.</p>
     </div>
-
-    <a class="feature-card" href="manual.html" style="display:block; text-decoration:none; color:inherit;">
-      <div class="icon">📖</div>
-      <h3>Manual de utilizare</h3>
-      <p>Ghid complet cu tot fluxul aplicației, pas cu pas — disponibil și offline, direct în aplicație.</p>
-    </a>
 
   </div>
 </section>
@@ -402,7 +438,8 @@
 <section style="padding: 48px 24px;">
   <div class="norm-banner reveal">
     <h2>Conform Ordinului 2537/2022</h2>
-    <p>Aplicația implementează integral normele tehnice privind controlul anual al regenerărilor din Ordinul ministrului mediului, apelor și pădurilor nr. 2537/2022, inclusiv criteriile din Anexa 3A, Anexa 3B și Anexa 1.</p>
+    <p>Aplicația implementează criteriile și documentele controlului anual al regenerărilor din Ordinul ministrului mediului, apelor și pădurilor nr. 2537/2022 — inclusiv Anexele 1, 3A, 3B, 4, 7 și 8.</p>
+    <p class="disclaimer">⚠ Aplicație independentă, neoficială — nu reprezintă o entitate guvernamentală și nu este afiliată cu nicio instituție de stat. Documentele generate se verifică de utilizator înainte de semnare și depunere. Sursa oficială a normelor: <a href="https://legislatie.just.ro/Public/DetaliiDocument/260373" rel="noopener">legislatie.just.ro</a></p>
   </div>
 </section>
 
@@ -416,7 +453,7 @@
     <div class="feature-card" style="text-align: center;">
       <div class="icon">📖</div>
       <h3>Manual de utilizare</h3>
-      <p>Ghid complet cu tot fluxul aplicației, pas cu pas.</p>
+      <p>Ghid complet cu tot fluxul aplicației, pas cu pas — disponibil și offline, direct în aplicație.</p>
       <a href="manual.html" style="display:inline-block; margin-top:16px; color:#2e7d32; font-weight:700; text-decoration:none;">Vezi manualul →</a>
     </div>
 
@@ -441,6 +478,7 @@
 
 <!-- ── FOOTER ── -->
 <footer>
+  <p class="footer-disclaimer">Aplicație independentă, neafiliată instituțiilor statului. Calculele au la bază Ordinul nr. 2537/2022.</p>
   <p>
     &copy; 2026 Florin Nicola &nbsp;·&nbsp;
     <a href="manual.html">Manual</a> &nbsp;·&nbsp;
